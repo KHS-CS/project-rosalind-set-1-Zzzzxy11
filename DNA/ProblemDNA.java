@@ -1,15 +1,9 @@
-
-/**
- * Write a description of class ProblemDNA here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class ProblemDNA
 {
     public static void main() {
         // replace this string with the one from Project Rosalind
-        final String data = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+        final String data = "TCCAAGGACTATGAGTCACGATCTGTGGCTTATGAAAGTCTGTAAGAGGTCTGAGGCCACATAGTGCTTACGCAAATTGAGACCCATGCAGCATTAAGGAGTAAAGGCGCTTGCTATTCAATTAGACGCTTGGCATCGCGCTCGCTTCTTAGTATTGCCACGGCGTCGCGACTATACTTGCGTCTTGGCCAAAACAGCAAATGAAACTCTTACGGATACTATTGTCTTTTTAATAATACACACCCGGCACGATCTACCGGAGTTCCATCTTCGATCCTCCGATAATAATATCGAATAGCTGGGTGTGCTTAATAGTCGTTCTCCACTCGCATCAGGGATCCGCTTATACCAGTCTAATGGTTCAGGAAACCGCCCAGCATCACAGGTGAATCTGTGTCCCAGGTACAACCGGTAGTCGCGGCATAGTATCAGATATAGTACCTCGAGATAGAACTGCAAGCGTCTCCCCGAGGATACGATCCCTGTCACATCAGCTAGGTGGGTTAGATTAATCACCTGTGCACGACTTGTCGATACACCAGATGTACCCTTTCGGCAATGAATAAAACCGAGAAATCAGAATGGCTTCAAACGTTTGTGCCACTGTCCTATGTAGATATGCTTATGCGAGCCGTAAGGAGGTAGAATGCACGCAAGAGATTCATGAGTCCGAAACCCATGCCGTGGTACGAAGAAGAAGTACGAATGCTGTGTTCGCGGGCAATACGTTTGGCTCATGCCGTGGTCTCAGTGGAGAATCCCCGATCGGCTCAACGGACGTCTTCCCTCTGAGGGACGGGATCTTGCTGTGTATAGACTAGAGAGTTTCAGCCACGGTGTTTGCCATTTTCCACCTGACGTGCGCGGATCTAAGGCTAGAAGGAAAACACGTTAACGTCTTACACGTACATAACACTGCGGCTTCATTAGTCGAACCCGGGTCGAGCCGAGTTTTG";
+
         final int[] exampleExpectedCounts = new int[]{20,12,17,21};
         int[] output = nucleotideCounts(data);
         // you can copy and paste from the terminal window into 
@@ -28,10 +22,22 @@ public class ProblemDNA
         return output; 
     }
     
-    // This should take the given string and return an int
-    //   array of how many times each letter occurs in the 
-    //   string. Ideally in A C G T order. 
     private static int[] nucleotideCounts(String dnaString) {
-        return new int[]{20,12,17,21};
+        int[] counts = new int[4];
+        for (int i = 0; i < dnaString.length(); i++) {
+            char c = dnaString.charAt(i);
+            if (c == 'A') {
+                counts[0]++;
+            } else if (c =='C') {
+                counts[1]++;
+            }
+             else if (c =='G') {
+                counts[2]++;
+            }
+             else if (c =='T') {
+                counts[3]++;
+            }
+            }
+            return counts;
+        
     }
-}
